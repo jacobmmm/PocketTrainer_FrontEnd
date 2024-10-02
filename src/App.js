@@ -4,6 +4,7 @@ import Login from './pages/login';
 import Home from './pages/home';
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 import Registration from './pages/registration';
+import MusclePlan from './pages/muscleplan';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route index element={<Home />} /> 
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Registration />} />
+      <Route path="/muscleplan" element={<MusclePlan/>} />
       
       </Routes>
       </Router>

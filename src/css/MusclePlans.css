@@ -1,0 +1,35 @@
+.container-style {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 250px; 
+    padding-left: 150px;
+    height: 60vh;
+    font-family: Arial, sans-serif;
+  }
+
+  .title-style {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+
+  .plan-item-style {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    cursor: pointer
+  }
+
+  .arrow-style {
+    width: 0;
+    height: 0;
+    border-left: 20px solid black;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    margin-right: 15px;
+  }
