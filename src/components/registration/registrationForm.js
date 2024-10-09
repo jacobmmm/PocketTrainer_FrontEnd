@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-
+import {useNavigate} from 'react-router-dom'
 
 function RegistrationForm() {
     const [firstName, setFirstName] = useState('');
@@ -11,12 +11,62 @@ function RegistrationForm() {
     const [confPwd, setConfPwd] = useState('');
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
-
-    const handleLogin = (event) => {
+    const [errors, setErrors] = useState({});
+    let navigate = useNavigate();
+    const handleLogin = async (event) => {
       event.preventDefault();
       // Add your login logic here
-      console.log('Email:', email);
-      console.log('Password:', password);
+      setErrors({});
+
+      
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+      if (!emailRegex.test(email)) {
+        setErrors(errors => ({ ...errors, email: "Please enter a valid email address." }));
+        return; // Stop the form submission if email is invalid
+    }
+
+    // Checking if passwords match
+    if (password !== confPwd) {
+        setErrors(errors => ({ ...errors, password: "Passwords do not match." }));
+        return; // Stop the form submission if passwords do not match
+    }
+
+    console.log("Form submitted:", { firstName, lastName, dateOfBirth, email, password, height, weight });
+
+
+      try {
+        const response = await fetch('https://p5l1fe42jf.execute-api.us-east-1.amazonaws.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            dateOfBirth,
+            email,
+            password,
+            height,
+            weight
+          })
+        });
+    
+        if (response.ok) {
+          const result = await response.json();
+          console.log('Success:', result);
+          // Handle actions after successful registration like redirecting to a login page or showing a success message
+        } else {
+          throw new Error('Failed to register');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }  
+
+      navigate('/login')
+
+      
     };
   
     return (
@@ -73,7 +123,7 @@ function RegistrationForm() {
               type="password"
               id="password"
               value={password}
-              onChange={(e) => setConfPwd(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
@@ -82,11 +132,14 @@ function RegistrationForm() {
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               type="password"
-              id="password"
+              id="confPassword"
               value={confPwd}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setConfPwd(e.target.value)}
               required
             />
+
+            {errors.password && <div style={{ color: "red" }}>{errors.password}</div>}
+
           </div> 
 
           <div className="input-group">
