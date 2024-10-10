@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 
 
@@ -13,6 +13,7 @@ function NavBar(props) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        position: 'relative',
         padding: '10px 20px',
         borderBottom: '2px solid black',
         marginBottom: '20px',
@@ -31,7 +32,30 @@ function NavBar(props) {
         color: 'white',
         fontSize: '18px',
         cursor: 'pointer'
+        
       };
+
+      const logOutStyle = {
+
+        position: 'absolute', 
+        top: '100%',
+        left: 1300,
+        backgroundColor: 'black', 
+        border: '1px solid #ccc', 
+        width: '200px', 
+        padding: '8px', 
+        boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
+        zIndex: 1000 };
+
+      const logOutText = {
+
+        color: 'white'
+      };
+
+      
+
+      const [isOpen, setIsOpen] = useState(false);  // State to control the visibility of the dropdown
+
       
       let navigate = useNavigate();
 
@@ -44,6 +68,13 @@ function NavBar(props) {
         console.log("Login clicked")
         navigate('/'); 
       }
+
+      function toggleDropdown(){
+        console.log("isOpen is, ",isOpen)
+        setIsOpen(!isOpen); 
+      }
+
+
 
   if(!props.email){
 
@@ -66,7 +97,14 @@ function NavBar(props) {
 
       <div  style={linkStyle} >Workout Logs</div>
 
-      <div  style={linkStyle} >{props.email}</div>
+      <div onClick={toggleDropdown}  style={linkStyle} >{props.email}</div>
+
+      {isOpen && (
+        <div style={logOutStyle}>
+          <a style={logOutText}>Logout</a>
+        </div>
+      )}
+    
       
     </div> 
 
