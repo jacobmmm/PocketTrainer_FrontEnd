@@ -3,7 +3,11 @@ import {useNavigate} from 'react-router-dom'
 
 
 
-function NavBar() {
+function NavBar(props) {
+
+
+  console.log("email navbar",props.email)  
+  
 
     const navStyle = {
         display: 'flex',
@@ -40,13 +44,31 @@ function NavBar() {
         console.log("Login clicked")
         navigate('/'); 
       }
+
+  if(!props.email){
+
+     return(<div style={navStyle}>
+      <div onClick={handleTitleClick} style={titleStyle}>POCKET TRAINER</div>
+     
+      <div onClick={handleLoginClick} style={linkStyle} >Login</div>
+      
+    </div> )
+
+  }
     
   return (
     <div style={navStyle}>
-      <div onClick={handleTitleClick} style={titleStyle}>POCKET TRAINER</div>
-      <div onClick={handleLoginClick} style={linkStyle} >Login</div>
+      <div  style={titleStyle}>POCKET TRAINER</div>
+     
+      <div  style={linkStyle} >Available Plans</div>
+
+      <div  style={linkStyle} >My Plans</div>
+
+      <div  style={linkStyle} >Workout Logs</div>
+
+      <div  style={linkStyle} >{props.email}</div>
       
-    </div>
+    </div> 
 
 
   )

@@ -34,11 +34,15 @@ function LoginForm() {
       if (response.ok) {
         const result = await response.json();
         console.log('Login successful:', result);
+        console.log("Navigating with email:", email);
+        navigate('/',{ state: { email: email } })
         // Handle actions after successful registration like redirecting to a login page or showing a success message
       } else {
+        setErrors(errors => ({ ...errors, message: "Invalid Credentials" }));
         throw new Error('Login Failed');
       }
     } catch (error) {
+      setErrors(errors => ({ ...errors, message: "Invalid Credentials" }));
       console.error('Error:', error);
     }  
 
@@ -75,6 +79,9 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+
+          {errors.message && <div style={{ color: "red" }}>{errors.message}</div>}
+
         </div>
         <button type="submit">Login</button>
       </form>
