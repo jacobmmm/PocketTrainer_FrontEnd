@@ -15,6 +15,8 @@ export default  function MusclePlanOpt() {
 
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    
     
     useEffect(() => {
       // Function to fetch plans
@@ -51,8 +53,9 @@ export default  function MusclePlanOpt() {
       <div>
       <p> {plans.map((plan, index) => (
         <div key={index} className="plan-item-style">
-          <div className="arrow-style"></div>
-          <span>{plan.name}</span>
+          <div  className="arrow-style"></div>
+          <span style={{ marginRight: '10px' }}>{plan.name}</span>
+          <span><button /*onClick={() => handleSelectPlan(plan)}*/>Select Plan</button></span>
         </div>
       ))} </p>
       </div>
