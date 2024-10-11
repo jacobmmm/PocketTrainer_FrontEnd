@@ -7,6 +7,7 @@ function NavBar(props) {
 
 
   console.log("email navbar",props.email)  
+
   
 
     const navStyle = {
@@ -74,7 +75,15 @@ function NavBar(props) {
         setIsOpen(!isOpen); 
       }
 
+      function handleLogout(){
+        //console.log("isOpen is, ",isOpen)
+        
+        navigate('/');
+      }
 
+
+
+  
 
   if(!props.email){
 
@@ -86,6 +95,8 @@ function NavBar(props) {
     </div> )
 
   }
+
+  
     
   return (
     <div style={navStyle}>
@@ -101,7 +112,7 @@ function NavBar(props) {
 
       {isOpen && (
         <div style={logOutStyle}>
-          <a style={logOutText}>Logout</a>
+          <a onClick={handleLogout} style={logOutText}>Logout</a>
         </div>
       )}
     
