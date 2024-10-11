@@ -70,6 +70,11 @@ function NavBar(props) {
         navigate('/'); 
       }
 
+      function handlePlans(){
+        console.log("Available Plans clicked")
+        navigate('/muscleplan'); 
+      }
+
       function toggleDropdown(){
         console.log("isOpen is, ",isOpen)
         setIsOpen(!isOpen); 
@@ -102,9 +107,9 @@ function NavBar(props) {
     <div style={navStyle}>
       <div  style={titleStyle}>POCKET TRAINER</div>
      
-      <div  style={linkStyle} >Available Plans</div>
+      <div onClick={handlePlans} style={linkStyle} >Available Plans</div>
 
-      <div  style={linkStyle} >My Plans</div>
+      <div   style={linkStyle} >My Plans</div>
 
       <div  style={linkStyle} >Workout Logs</div>
 
