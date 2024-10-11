@@ -72,7 +72,7 @@ function NavBar(props) {
 
       function handlePlans(){
         console.log("Available Plans clicked")
-        navigate('/muscleplan'); 
+        navigate('/muscleplan',{ state: { email: props.email } }); 
       }
 
       function toggleDropdown(){

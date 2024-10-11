@@ -1,15 +1,47 @@
 import "../../css/MusclePlans.css"
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function MusclePlanOpt() {
+export default  function MusclePlanOpt() {
 
-    const plans = [
-        { name: 'ISOLATION(5 days)' },
-        { name: 'ISOLATION(4 days)' },
-        { name: 'PUSH/PULL' },
-        { name: 'FULL BODY' },
-      ];
+    // const plans = [
+    //     { name: 'ISOLATION(5 days)' },
+    //     { name: 'ISOLATION(4 days)' },
+    //     { name: 'PUSH/PULL' },
+    //     { name: 'FULL BODY' },
+    //   ];
+
+    //Extracting plans from backend
+
+    const [plans, setPlans] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+      // Function to fetch plans
+      const fetchPlans = async () => {
+        try {
+          const response = await fetch('https://p5l1fe42jf.execute-api.us-east-1.amazonaws.com/workoutPlans');
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          console.log("API muscle plans: ", data.plans);
+          const plansAlt = data.plans.map(planName => ({ name: planName }));
+          setPlans(plansAlt); // Update state with the fetched plans
+          setLoading(false); // Update loading status
+        } catch (error) {
+          console.error('There was a problem with the fetch operation:', error);
+          setLoading(false); // Update loading status in case of error
+        }
+      };
+  
+      fetchPlans();
+    }, []); // Run only once on component mount
+  
+    // Render loading text while data is loading
+    if (loading) {
+      return <div>Loading...</div>;
+    }
 
     return(
 
