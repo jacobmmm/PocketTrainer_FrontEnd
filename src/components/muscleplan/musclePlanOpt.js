@@ -1,6 +1,7 @@
 import "../../css/MusclePlans.css"
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import MuscleGroupModal from "../modal/musclesModal";
 
 export default  function MusclePlanOpt() {
 
@@ -15,6 +16,7 @@ export default  function MusclePlanOpt() {
 
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isModalOpen, setModalOpen] = useState(false);
 
     
     
@@ -45,6 +47,18 @@ export default  function MusclePlanOpt() {
       return <div>Loading...</div>;
     }
 
+    const handleSelectPlan = (planName) => {
+      console.log("Selected Plan, ",planName)
+      setModalOpen(true);
+      
+    }
+
+    const handleCloseModal = () => {
+
+      setModalOpen(false);
+
+    }
+
     return(
 
         <div className="container-style">
@@ -55,7 +69,8 @@ export default  function MusclePlanOpt() {
         <div key={index} className="plan-item-style">
           <div  className="arrow-style"></div>
           <span style={{ marginRight: '10px' }}>{plan.name}</span>
-          <span><button /*onClick={() => handleSelectPlan(plan)}*/>Select Plan</button></span>
+          <span><button onClick={() => handleSelectPlan(plan.name)}>Select Plan</button></span>
+          <MuscleGroupModal isOpen={isModalOpen} onClose={handleCloseModal} />
         </div>
       ))} </p>
       </div>
