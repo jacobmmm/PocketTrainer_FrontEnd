@@ -1,8 +1,29 @@
 // MuscleGroupModal.js
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import '../../css/MuscleModal.css'
 
+
 const MuscleGroupModal = ({ isOpen, onClose }) => {
+
+  useEffect(() => {
+    // Function to fetch plans
+    const fetchMuscles = async () => {
+      try {
+        const response = await fetch('https://p5l1fe42jf.execute-api.us-east-1.amazonaws.com/getMuscles');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log("API muscle plans: ", data.muscles);
+        
+      } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+      }
+    };
+
+    fetchMuscles();
+  }, []); // Run only once on component mount
+
   if (!isOpen) return null;
 
   return (
