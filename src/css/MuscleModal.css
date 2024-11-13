@@ -25,7 +25,8 @@
   .group-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Aligns checkboxes to the left */
+    min-width: 80px;
   }
 
   .group-heading {
