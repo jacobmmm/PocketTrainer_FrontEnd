@@ -14,7 +14,7 @@ const MuscleGroupModal = ({ isOpen, onClose }) => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log("API muscle plans: ", data.muscles);
+        console.log("API muscle Details: ", data.muscles);
         
       } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
