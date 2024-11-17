@@ -22,7 +22,7 @@ export default  function MusclePlanOpt() {
     
     useEffect(() => {
       // Function to fetch plans
-      const fetchPlans = async () => {
+      const fetchMuscles = async () => {
         try {
           const response = await fetch('https://p5l1fe42jf.execute-api.us-east-1.amazonaws.com/workoutPlans');
           if (!response.ok) {
@@ -39,7 +39,7 @@ export default  function MusclePlanOpt() {
         }
       };
   
-      fetchPlans();
+      fetchMuscles();
     }, []); // Run only once on component mount
   
     // Render loading text while data is loading
