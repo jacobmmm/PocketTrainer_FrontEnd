@@ -5,6 +5,8 @@ import '../../css/MuscleModal.css'
 
 const MuscleGroupModal = ({ isOpen, onClose }) => {
 
+  const [muscles, setMuscles] = useState([]);
+
   useEffect(() => {
     // Function to fetch plans
     const fetchMuscles = async () => {
@@ -15,6 +17,8 @@ const MuscleGroupModal = ({ isOpen, onClose }) => {
         }
         const data = await response.json();
         console.log("API muscle Details: ", data.muscles);
+        const muscleData = data.muscles
+        setMuscles(muscleData)
         
       } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
@@ -31,7 +35,24 @@ const MuscleGroupModal = ({ isOpen, onClose }) => {
       <div className="modal">
         <h2>Choose Your Muscle Groups</h2>
         <div className="groups-container">
-          <div className="group-column">
+          {muscles.map((muscleGroup,index) => {
+
+            const[muscleName, subMuscles] = Object.entries(muscleGroup)[0];
+            return(<div className="group-column" key={index}>
+                   <h4 className="group-heading">{muscleName}</h4>
+                   {subMuscles.map((subMuscle,subIndex) =>(
+                    <label key={subIndex}>
+                      <input type="checkbox" />{subMuscle}</label>
+                   ))}
+                  </div>
+              
+              
+              
+              
+              )
+
+            } )}
+          {/* <div className="group-column">
             <h4 className="group-heading">Legs</h4>
             <label><input type="checkbox" /> Quads</label>
             <label><input type="checkbox" /> Hamstrings</label>
@@ -53,7 +74,7 @@ const MuscleGroupModal = ({ isOpen, onClose }) => {
           </div>
           <div className="group-column">
             <h4 className="group-heading">Back</h4>
-          </div>
+          </div> */}
         </div>
         <button className="done-button" onClick={onClose}>DONE</button>
       </div>
