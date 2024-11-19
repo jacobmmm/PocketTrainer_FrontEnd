@@ -13,7 +13,7 @@
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    width: 600px;
+    width: 1000px;
     text-align: center
   }
   .groups-container {
@@ -25,8 +25,8 @@
   .group-column {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligns checkboxes to the left */
-    min-width: 80px;
+    align-items: flex-start;  
+    min-width: 120px;
   }
 
   .group-heading {

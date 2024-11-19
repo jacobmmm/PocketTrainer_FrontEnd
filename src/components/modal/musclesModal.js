@@ -52,29 +52,6 @@ const MuscleGroupModal = ({ isOpen, onClose }) => {
               )
 
             } )}
-          {/* <div className="group-column">
-            <h4 className="group-heading">Legs</h4>
-            <label><input type="checkbox" /> Quads</label>
-            <label><input type="checkbox" /> Hamstrings</label>
-            <label><input type="checkbox" /> Calves</label>
-            <label><input type="checkbox" /> Glutes</label>
-          </div>
-          <div className="group-column">
-            <h4 className="group-heading">Shoulders</h4>
-            <label><input type="checkbox" />Anterior</label>
-          </div>
-          <div className="group-column">
-            <h4 className="group-heading"> Biceps</h4>
-          </div>
-          <div className="group-column">
-            <h4 className="group-heading">Triceps</h4>
-          </div>
-          <div className="group-column">
-            <h4 className="group-heading">Chest</h4>
-          </div>
-          <div className="group-column">
-            <h4 className="group-heading">Back</h4>
-          </div> */}
         </div>
         <button className="done-button" onClick={onClose}>DONE</button>
       </div>
