@@ -6,6 +6,45 @@ import '../../css/MuscleModal.css'
 const MuscleGroupModal = ({ isOpen, onClose }) => {
 
   const [muscles, setMuscles] = useState([]);
+  const [selectedMuscles, setSelectedMuscles] = useState({})
+
+
+  const handleCheckboxChange = (muscleName,subMuscle) => {
+
+    setSelectedMuscles((prevState) =>{
+
+      const group = prevState[muscleName] || []
+
+      if(group.includes(subMuscle)){
+
+        console.log(subMuscle,"Already present unchecking")
+
+        return{
+          ...prevState,
+          [muscleName]:group.filter((muscle) => muscle!=subMuscle)
+        }
+      }
+
+      else{
+
+        console.log("Adding ",subMuscle)
+
+        return{
+          ...prevState,
+          [muscleName]:[...group,subMuscle]
+        }
+
+      }
+    }
+    
+    )
+
+  }
+
+  const handleDoneClick = () => {
+    console.log("Selected Muscles: ",selectedMuscles) // Pass data to parent or handle logic here
+    onClose(); // Close the modal
+  };
 
   useEffect(() => {
     // Function to fetch plans
@@ -42,7 +81,7 @@ const MuscleGroupModal = ({ isOpen, onClose }) => {
                    <h4 className="group-heading">{muscleName}</h4>
                    {subMuscles.map((subMuscle,subIndex) =>(
                     <label key={subIndex}>
-                      <input type="checkbox" />{subMuscle}</label>
+                      <input type="checkbox" onChange={() => handleCheckboxChange(muscleName,subMuscle)} />{subMuscle}</label>
                    ))}
                   </div>
               
@@ -53,7 +92,7 @@ const MuscleGroupModal = ({ isOpen, onClose }) => {
 
             } )}
         </div>
-        <button className="done-button" onClick={onClose}>DONE</button>
+        <button className="done-button" onClick={handleDoneClick}>DONE</button>
       </div>
     </div>
   );
