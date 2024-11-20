@@ -98,44 +98,4 @@ const MuscleGroupModal = ({ isOpen, onClose }) => {
   );
 };
 
-// const styles = {
-//   overlay: {
-//     position: 'fixed',
-//     top: 0,
-//     left: 0,
-//     right: 0,
-//     bottom: 0,
-//     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-//     display: 'flex',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   modal: {
-//     background: '#fff',
-//     padding: '20px',
-//     borderRadius: '8px',
-//     width: '400px',
-//     textAlign: 'center',
-//   },
-//   groupsContainer: {
-//     display: 'flex',
-//     justifyContent: 'space-around',
-//     margin: '20px 0',
-//   },
-//   groupColumn: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//   },
-//   doneButton: {
-//     marginTop: '20px',
-//     padding: '10px 20px',
-//     borderRadius: '8px',
-//     border: 'none',
-//     background: '#333',
-//     color: '#fff',
-//     cursor: 'pointer',
-//   },
-// };
-
 export default MuscleGroupModal;
