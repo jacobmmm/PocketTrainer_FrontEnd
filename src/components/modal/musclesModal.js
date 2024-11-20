@@ -43,6 +43,8 @@ const MuscleGroupModal = ({ isOpen, onClose }) => {
 
   const handleDoneClick = () => {
     console.log("Selected Muscles: ",selectedMuscles) // Pass data to parent or handle logic here
+    console.log("resetting selected muscles and submuscles")
+    setSelectedMuscles([])
     onClose(); // Close the modal
   };
 
