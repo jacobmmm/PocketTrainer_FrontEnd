@@ -37,7 +37,7 @@ function RegistrationForm() {
 
 
       try {
-        const response = await fetch('https://p5l1fe42jf.execute-api.us-east-1.amazonaws.com', {
+        const response = await fetch('https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

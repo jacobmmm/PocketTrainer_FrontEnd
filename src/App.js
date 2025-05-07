@@ -6,6 +6,7 @@ import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 import Registration from './pages/registration';
 import MusclePlan from './pages/muscleplan';
 import PlanExcercise from './pages/planExcercise';
+import UserPlans from './pages/userPlans';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/signup" element={<Registration />} />
       <Route path="/muscleplan" element={<MusclePlan/>} />
       <Route path="/muscleplan/excercises" element={<PlanExcercise />} />
+      <Route path="/myplans" element={<UserPlans />} />
       
       </Routes>
       </Router>

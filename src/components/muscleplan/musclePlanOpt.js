@@ -2,8 +2,9 @@ import "../../css/MusclePlans.css"
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MuscleGroupModal from "../modal/musclesModal";
+import {useNavigate} from 'react-router-dom'
 
-export default  function MusclePlanOpt() {
+export default  function MusclePlanOpt(props) {
 
     // const plans = [
     //     { name: 'ISOLATION(5 days)' },
@@ -13,6 +14,12 @@ export default  function MusclePlanOpt() {
     //   ];
 
     //Extracting plans from backend
+
+    console.log("Email in Plans page: ",props.email)
+
+    let navigate = useNavigate();
+
+    const userEmail = props.email
 
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -24,7 +31,7 @@ export default  function MusclePlanOpt() {
       // Function to fetch plans
       const fetchPlans = async () => {
         try {
-          const response = await fetch('https://p5l1fe42jf.execute-api.us-east-1.amazonaws.com/workoutPlans');
+          const response = await fetch('https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/workoutPlans');
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
@@ -56,7 +63,9 @@ export default  function MusclePlanOpt() {
     const handleCloseModal = () => {
 
       setModalOpen(false);
-
+      console.log("Upon closing modal: ",isModalOpen)
+      navigate('/myplans',{ state: { email: props.email } });
+      
     }
 
     return(
@@ -70,7 +79,7 @@ export default  function MusclePlanOpt() {
           <div  className="arrow-style"></div>
           <span style={{ marginRight: '10px' }}>{plan.name}</span>
           <span><button onClick={() => handleSelectPlan(plan.name)}>Select Plan</button></span>
-          <MuscleGroupModal isOpen={isModalOpen} onClose={handleCloseModal} />
+          <MuscleGroupModal isOpen={isModalOpen} onClose={handleCloseModal} userEmail={userEmail} planName={plan.name} />
         </div>
       ))} </p>
       </div>

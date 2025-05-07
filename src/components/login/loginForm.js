@@ -18,14 +18,15 @@ function LoginForm() {
     console.log('Password:', password);
 
     try {
-      const response = await fetch('https://p5l1fe42jf.execute-api.us-east-1.amazonaws.com/userLogin', {
+      let username = email
+      const response = await fetch('https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/userLogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           
-          email,
+          username,
           password,
           
         })
