@@ -68,6 +68,12 @@ function NavBar(props) {
       function handleTitleClick(){
         console.log("Login clicked")
         navigate('/',{ state: { email: props.email } }); 
+
+      }
+
+      function viewPlans(){
+        
+        navigate('/myplans',{ state: { email: props.email } }); 
       }
 
       function handlePlans(){
@@ -109,7 +115,7 @@ function NavBar(props) {
      
       <div onClick={handlePlans} style={linkStyle} >Available Plans</div>
 
-      <div   style={linkStyle} >My Plans</div>
+      <div onClick={viewPlans}   style={linkStyle} >My Plans</div>
 
       <div  style={linkStyle} >Workout Logs</div>
 

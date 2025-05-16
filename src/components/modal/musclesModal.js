@@ -64,10 +64,12 @@ const MuscleGroupModal = ({ isOpen, onClose, userEmail, planName }) => {
           submuscles,
         })
       });
+
+      //console.log("Response from API: ",response)
   
       if (response.ok) {
-        const result = await response.json();
-        console.log('Success:', result);
+        
+        console.log('Success:', response);
         // Handle actions after successful registration like redirecting to a login page or showing a success message
       } else {
         throw new Error('Failed to register');

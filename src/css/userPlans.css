@@ -7,6 +7,12 @@
     padding-left: 150px;
     height: 60vh;
     font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .title-style {
@@ -15,4 +21,51 @@
     text-align: center;
     margin-bottom: 20px;
     letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #343a40;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .plans-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .plan-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .plan-card h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.5rem;
+  }
+
+  .no-plans-message {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    color: #6c757d;
+  }
+
+  .no-plans-message a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .no-plans-message a:hover {
+    text-decoration: underline;
   }
