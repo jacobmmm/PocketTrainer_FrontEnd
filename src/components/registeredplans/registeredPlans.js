@@ -10,13 +10,16 @@ export default function RegisteredPlans(props) {
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  console.log("Inside Registered Plans component");
+
   useEffect(() => {
     const fetchPlans = async () => {
       try {
         const response = await fetch(`https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/userplans/${userEmail}`);
         if (response.ok) {
           const data = await response.json();
-          setPlans(data);
+          console.log("Plans data fetched: ", data);
+          setPlans(data.plans);
         } else {
           console.error('Failed to fetch plans');
         }
@@ -30,7 +33,12 @@ export default function RegisteredPlans(props) {
     if (userEmail) {
       fetchPlans();
     }
-  }, [userEmail]);
+  },[]);
+
+  useEffect(() => { 
+    console.log("Plans fetched: ", plans);
+    console.log("Plans length: ", plans.length);
+  }, [plans]);
 
 
   return(
