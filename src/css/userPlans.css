@@ -3,14 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-left: 250px; 
-    padding-left: 150px;
+    margin-left: 80px; 
+    padding-left: 120px;
     height: 60vh;
     font-family: Arial, sans-serif;
     max-width: 1200px;
     margin: 2rem auto;
     padding: 1.5rem;
-    background-color: #f8f9fa;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
@@ -19,6 +19,8 @@
     font-weight: bold;
     font-size: 24px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
     letter-spacing: 2px;
     text-align: center;
@@ -36,6 +38,9 @@
 
   .plan-card {
     background-color: white;
+    display:flex;
+    gap: 7rem;
+    align-items: center;
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -51,6 +56,22 @@
     margin-top: 0;
     color: #007bff;
     font-size: 1.5rem;
+  }
+
+  .plan-card span {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.2rem;
+  }
+
+  .view-plan-btn {
+    background-color: #007bff; /* Bootstrap blue */
+    color: white;              /* White text */
+    border: none;              /* No border */
+    padding: 0.5rem 1rem; 
+    margin-bottom: 30px;     /* Some padding */
+    border-radius: 4px;        /* Rounded corners */
+    cursor: pointer;           /* Pointer cursor on hover */
   }
 
   .no-plans-message {

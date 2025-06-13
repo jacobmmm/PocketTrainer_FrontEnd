@@ -113,7 +113,8 @@ const MuscleGroupModal = ({ isOpen, onClose, userEmail, planName }) => {
   return (
     <div className="overlay">
       <div className="modal">
-        <h2>Choose Your Muscle Groups</h2>
+        {/* <h2>Choose Your Muscle Groups</h2> */}
+        <h2>{planName}</h2>
         <div className="groups-container">
           {
           muscles.map((muscleGroup,index) => {

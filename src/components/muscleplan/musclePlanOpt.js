@@ -22,6 +22,7 @@ export default  function MusclePlanOpt(props) {
     const userEmail = props.email
 
     const [plans, setPlans] = useState([]);
+    const [selectedPlan, setSelectedPlan] = useState("");
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setModalOpen] = useState(false);
 
@@ -48,6 +49,11 @@ export default  function MusclePlanOpt(props) {
   
       fetchPlans();
     }, []); // Run only once on component mount
+
+    useEffect(() => {
+      console.log("selected Plan inside Hook: ", selectedPlan);
+      
+    }, [selectedPlan]);
   
     // Render loading text while data is loading
     if (loading) {
@@ -55,7 +61,9 @@ export default  function MusclePlanOpt(props) {
     }
 
     const handleSelectPlan = (planName) => {
+      console.log("Inside HANDLE SELECT PLAN")
       console.log("Selected Plan, ",planName)
+      setSelectedPlan(planName);
       setModalOpen(true);
       
     }
@@ -79,9 +87,10 @@ export default  function MusclePlanOpt(props) {
           <div  className="arrow-style"></div>
           <span style={{ marginRight: '10px' }}>{plan.name}</span>
           <span><button onClick={() => handleSelectPlan(plan.name)}>Select Plan</button></span>
-          <MuscleGroupModal isOpen={isModalOpen} onClose={handleCloseModal} userEmail={userEmail} planName={plan.name} />
+          
         </div>
       ))} </p>
+      <MuscleGroupModal isOpen={isModalOpen} onClose={handleCloseModal} userEmail={userEmail} planName={selectedPlan} />
       </div>
       </div>
     
