@@ -13,47 +13,47 @@ export default function PlanDetails() {
     console.log(planLower.includes('4 day'));
 
     const isolation5_splits = [
-        { day:'1',src:'NA',name: 'Legs' },
-        { day:'2',src:'NA',name: 'Chest' },
-        { day:'3',src:'NA',name: 'Shoulders' },
-        { day:'4',src:'NA',name: 'Back' },
-        {day:'5',src:'NA',name: 'Arms'}
+        { day:'1',name: 'Legs' },
+        { day:'2',name: 'Chest' },
+        { day:'3',name: 'Shoulders' },
+        { day:'4',name: 'Back' },
+        {day:'5',name: 'Arms'}
     ];
 
     const isolation4_splits = [
-        { day:'1',src:'NA',name: 'Legs' },
-        { day:'2',src:'NA',name: 'Shoulders' },
-        { day:'3',src:'NA',name: 'Chest+Triceps' },
-        { day:'4',src:'NA',name: 'Back+Biceps' }]
+        { day:'1',name: 'Legs' },
+        { day:'2',name: 'Shoulders' },
+        { day:'3',name: 'Chest+Triceps' },
+        { day:'4',name: 'Back+Biceps' }]
 
     const push_pull_legs = [
-        { day:'1',src:'NA',name: 'Push (Chest, Shoulders, Triceps)' },
-        { day:'2',src:'NA',name: 'Pull (Back, Biceps)' },
-        { day:'3',src:'NA',name: 'Legs' },
-        { day:'4',src:'NA',name: 'Rest' },
-        { day:'5',src:'NA',name: 'Push (Chest, Shoulders, Triceps)' },
-        { day:'6',src:'NA',name: 'Pull (Back, Biceps)' },
-        { day:'7',src:'NA',name: 'Legs' }
+        { day:'1',name: 'Push' },
+        { day:'2',name: 'Pull' },
+        { day:'3',name: 'Legs' },
+        { day:'4',name: 'Rest' },
+        { day:'5',name: 'Push' },
+        { day:'6',name: 'Pull' },
+        { day:'7',name: 'Legs' }
     ];
 
     const full_body = [
-        { day:'1',src:'NA',name: 'Full Body Workout A' },
-        { day:'2',src:'NA',name: 'Rest' },
-        { day:'3',src:'NA',name: 'Full Body Workout B' },
-        { day:'4',src:'NA',name: 'Rest' },
-        { day:'5',src:'NA',name: 'Full Body Workout C' },
-        { day:'6',src:'NA',name: 'Rest' },
-        { day:'7',src:'NA',name: 'Rest' }
+        { day:'1',name: 'Full Body' },
+        { day:'2',name: 'Rest' },
+        { day:'3',name: 'Full Body' },
+        { day:'4',name: 'Rest' },
+        { day:'5',name: 'Full Body' },
+        { day:'6',name: 'Rest' },
+        { day:'7',name: 'Rest' }
     ];
 
     const upper_lower = [
-        { day:'1',src:'NA',name: 'Upper Body' },
-        { day:'2',src:'NA',name: 'Lower Body' },
-        { day:'3',src:'NA',name: 'Rest' },
-        { day:'4',src:'NA',name: 'Upper Body' },
-        { day:'5',src:'NA',name: 'Lower Body' },
-        { day:'6',src:'NA',name: 'Rest' },
-        { day:'7',src:'NA',name: 'Rest' }
+        { day:'1',name: 'Upper Body' },
+        { day:'2',name: 'Lower Body' },
+        { day:'3',name: 'Rest' },
+        { day:'4',name: 'Upper Body' },
+        { day:'5',name: 'Lower Body' },
+        { day:'6',name: 'Rest' },
+        { day:'7',name: 'Rest' }
     ];
 
     // Function to render workout plan
@@ -62,7 +62,7 @@ export default function PlanDetails() {
             // <div key={index} className="plan-item-style">
             <div key={index} className="plan-card">
                 <span>
-                    <img src={workout.src}  />
+                    
                     Day {workout.day}: {workout.name}
                 </span>
                 <br/>
