@@ -1,0 +1,173 @@
+.hero-container {
+  background: url('../components/homepage/GymWallpaper1.webp') center/cover no-repeat;
+  min-height: 100vh;
+  color: #fff;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px 0 50px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.app-name {
+  font-weight: bold;
+  color: #00e6e6;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.navbar-menu li {
+  cursor: pointer;
+  font-weight: 500;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.navbar-menu .active,
+.navbar-menu li:hover {
+  color: #ffd700;
+}
+
+.navbar-icons .icon {
+  margin-left: 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.hero-content {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.learn-more,
+.join-now {
+  padding: 12px 32px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.learn-more {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.join-now {
+  background: #ffd700;
+  color: #222;
+}
+
+.hero-footer {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  align-items: center;
+}
+
+.carousel-indicators {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.4;
+}
+
+.dot.active {
+  opacity: 1;
+  background: #ffd700;
+}
+
+.slide-number,
+.slide-total {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.social-icons span {
+  margin-left: 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.navbar-login {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.login-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.login-icon {
+  width: 64px;
+  height: 64px;
+  margin-right: 8px;
+}
