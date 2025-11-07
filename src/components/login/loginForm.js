@@ -7,19 +7,21 @@ import React, { useState } from 'react';
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   let navigate = useNavigate();
   const handleLogin = async (event) => {
     event.preventDefault();
     
     setErrors({});
+    setLoading(true);
 
     console.log('Email:', email);
     console.log('Password:', password);
 
     try {
       let username = email
-      const response = await fetch('https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/userLogin', {
+      const response = await fetch('https://4k4zv69rzi.execute-api.ap-southeast-2.amazonaws.com/userLogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -34,15 +36,18 @@ function LoginForm() {
   
       if (response.ok) {
         const result = await response.json();
+        setLoading(false);
         console.log('Login successful:', result);
         console.log("Navigating with email:", email);
         navigate('/',{ state: { email: email } })
         // Handle actions after successful registration like redirecting to a login page or showing a success message
       } else {
+        setLoading(false);
         setErrors(errors => ({ ...errors, message: "Invalid Credentials" }));
         throw new Error('Login Failed');
       }
     } catch (error) {
+      setLoading(false);
       setErrors(errors => ({ ...errors, message: "Invalid Credentials" }));
       console.error('Error:', error);
     }  
@@ -59,8 +64,12 @@ function LoginForm() {
 
   return (
     <div className="login-container">
-      
-      <form onSubmit={handleLogin}>
+      {loading && (
+        <div className="loading-overlay">
+          <div className="loading-spinner"></div>
+        </div>
+      )}
+      <form onSubmit={handleLogin} style={loading ? { filter: 'blur(2px)' } : {}}>
         <div className="input-group">
           <label htmlFor="email">Email</label>
           <input

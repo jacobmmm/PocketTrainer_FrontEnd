@@ -7,6 +7,7 @@ import Registration from './pages/registration';
 import MusclePlan from './pages/muscleplan';
 import PlanExcercise from './pages/planExcercise';
 import UserPlans from './pages/userPlans';
+import WorkoutDetails from './pages/workoutDetails';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/muscleplan/excercises" element={<PlanExcercise />} />
       <Route path="/myplans" element={<UserPlans />} />
       <Route path="/viewplan" element={<PlanExcercise />} />
+      <Route path="/workout-details" element={<WorkoutDetails />} />
       
       </Routes>
       </Router>

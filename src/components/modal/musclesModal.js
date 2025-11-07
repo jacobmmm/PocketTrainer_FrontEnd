@@ -53,7 +53,7 @@ const MuscleGroupModal = ({ isOpen, onClose, userEmail, planName }) => {
     if(submuscles)
     {
     try {
-      const response = await fetch('https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/linkUserPlanSubmuscle', {
+      const response = await fetch('https://4k4zv69rzi.execute-api.ap-southeast-2.amazonaws.com/linkUserPlanSubmuscle', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ const MuscleGroupModal = ({ isOpen, onClose, userEmail, planName }) => {
     // Function to fetch plans
     const fetchMuscles = async () => {
       try {
-        const response = await fetch('https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/getMuscles');
+        const response = await fetch('https://4k4zv69rzi.execute-api.ap-southeast-2.amazonaws.com/getMuscles');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

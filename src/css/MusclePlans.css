@@ -1,20 +1,51 @@
+/* Page-level layout for dynamic spacing */
+.muscle-plan-layout {
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr);
+    gap: clamp(2rem, 6vh, 5rem);
+    min-height: 100vh;
+    overflow: hidden; /* Prevent grid from overflowing */
+}
+
+/* Ensure the third grid row (plans container) respects boundaries */
+.muscle-plan-layout > *:nth-child(3) {
+    min-height: 150vh; /* Critical: allows grid row to shrink below content size */
+    overflow-y: auto; /* Enable scrolling if content exceeds available space */
+    max-height: 100%; /* Prevent exceeding grid row height */
+}
+
 .container-style {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 250px; 
-    padding-left: 150px;
-    height: 60vh;
     font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+    padding: 1.5rem;
+    padding-top: clamp(3rem, 10vh, 5rem);
+    padding-bottom: 2rem;
+    background-color: white;
+    height: 100%; /* Take full height of grid row */
+    box-sizing: border-box; /* Include padding in height calculation */
+    overflow-y: auto; /* Allow scrolling if content exceeds available space */
+    max-height: 100%; /* Respect parent container height - prevents overlap */
+    /* border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   }
 
   .title-style {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 64px;
     text-align: center;
-    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: clamp(1rem, 4vh, 2rem);
+    margin-bottom: 1rem;
     letter-spacing: 2px;
+    color: #343a40;
+    /* font-size: 2rem;
+    font-weight: 700; */
   }
 
   .plan-item-style {
@@ -22,14 +53,48 @@
     align-items: center;
     font-size: 18px;
     margin-bottom: 20px;
-    cursor: pointer
+    cursor: pointer;
+    padding: 1.5rem;
+    transition: transform 0.2s ease-in-out;
+    width: 100%;
+    gap: clamp(2rem, 10vw, 8rem); /* Responsive gap between plan name and button */
+  }
+
+  .plan-item-style:hover {
+    transform: translateY(-5px);
+  }
+
+  .plan-name-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Consistent spacing between arrow and plan name */
+  }
+
+  .plan-item-style span:first-of-type {
+    color: #007bff;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .plan-item-style button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .plan-item-style button:hover {
+    background-color: #0056b3;
   }
 
   .arrow-style {
     width: 0;
     height: 0;
-    border-left: 20px solid black;
+    border-left: 20px solid #007bff;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    margin-right: 15px;
   }

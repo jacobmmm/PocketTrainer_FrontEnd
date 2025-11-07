@@ -14,7 +14,7 @@ export default function Home() {
   return(
     <div>
     <NavBar email={email} />
-    <MainImage />
+    
     <HomeParagraph />
     <HomeFeatures />
     </div>

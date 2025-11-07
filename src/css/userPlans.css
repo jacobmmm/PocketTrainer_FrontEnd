@@ -1,18 +1,28 @@
+/* Page-level layout for dynamic spacing */
+.user-plans-layout {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: clamp(1rem, 5vh, 3rem);
+    min-height: 100vh;
+}
+
 .container-style {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    /* margin-top: clamp(8rem, 18vh, 14rem); */
     margin-left: 80px; 
     padding-left: 120px;
     height: 60vh;
     font-family: Arial, sans-serif;
     max-width: 1200px;
-    margin: 2rem auto;
+    /* Dynamic spacing: minimum 2rem, preferred 8% of viewport height, maximum 6rem */
+    margin: clamp(8rem, 12vh, 16rem) auto 2rem auto; 
     padding: 1.5rem;
     background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   }
 
   .title-style {
@@ -21,7 +31,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    
     letter-spacing: 2px;
     text-align: center;
     margin-bottom: 2rem;
@@ -37,19 +47,15 @@
   }
 
   .plan-card {
-    background-color: white;
     display:flex;
     gap: 7rem;
     align-items: center;
-    border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
   }
 
   .plan-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
 
   .plan-card h3 {
@@ -89,4 +95,13 @@
 
   .no-plans-message a:hover {
     text-decoration: underline;
+  }
+
+  .arrow-style {
+    width: 0;
+    height: 0;
+    border-left: 20px solid #007bff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    margin-right: 15px;
   }

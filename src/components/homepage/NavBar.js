@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
+import '../../css/NavBar.css'
 
 
 
@@ -8,129 +9,104 @@ function NavBar(props) {
 
   console.log("email navbar",props.email)  
 
-  
-
-    const navStyle = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        position: 'relative',
-        padding: '10px 20px',
-        borderBottom: '2px solid black',
-        marginBottom: '20px',
-        backgroundColor: 'black'
-      };
-    
-      const titleStyle = {
-        fontWeight: 'bold',
-        fontSize: '24px',
-        color: 'white',
-        cursor: 'pointer'
-      };
-    
-      const linkStyle = {
-        textDecoration: 'none',
-        color: 'white',
-        fontSize: '18px',
-        cursor: 'pointer'
-        
-      };
-
-      const logOutStyle = {
-
-        position: 'absolute', 
-        top: '100%',
-        left: 1300,
-        backgroundColor: 'black', 
-        border: '1px solid #ccc', 
-        width: '200px', 
-        padding: '8px', 
-        boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
-        zIndex: 1000 };
-
-      const logOutText = {
-
-        color: 'white'
-      };
-
-      
-
-      const [isOpen, setIsOpen] = useState(false);  // State to control the visibility of the dropdown
-
-      
-      let navigate = useNavigate();
-
-      function handleLoginClick(){
-        console.log("Login clicked")
-        navigate('/login'); 
-      }
-
-      function handleTitleClick(){
-        console.log("Login clicked")
-        navigate('/',{ state: { email: props.email } }); 
-
-      }
-
-      function viewPlans(){
-        
-        navigate('/myplans',{ state: { email: props.email } }); 
-      }
-
-      function handlePlans(){
-        console.log("Available Plans clicked")
-        navigate('/muscleplan',{ state: { email: props.email } }); 
-      }
-
-      function toggleDropdown(){
-        console.log("isOpen is, ",isOpen)
-        setIsOpen(!isOpen); 
-      }
-
-      function handleLogout(){
-        //console.log("isOpen is, ",isOpen)
-        
-        navigate('/');
-      }
-
-
+  const [isOpen, setIsOpen] = useState(false);  // State to control the visibility of the dropdown
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   
+  let navigate = useNavigate();
 
-  if(!props.email){
+  function handleLoginClick(){
+    console.log("Login clicked")
+    navigate('/login'); 
+  }
 
-     return(<div style={navStyle}>
-      <div onClick={handleTitleClick} style={titleStyle}>POCKET TRAINER</div>
-     
-      <div onClick={handleLoginClick} style={linkStyle} >Login</div>
-      
-    </div> )
+  function handleTitleClick(){
+    console.log("Login clicked")
+    navigate('/',{ state: { email: props.email } }); 
 
   }
 
-  
+  function viewPlans(){
     
+    navigate('/myplans',{ state: { email: props.email } }); 
+  }
+
+  function handlePlans(){
+    console.log("Available Plans clicked")
+    navigate('/muscleplan',{ state: { email: props.email } }); 
+  }
+
+  function toggleDropdown(){
+    console.log("isOpen is, ",isOpen)
+    setIsOpen(!isOpen); 
+  }
+
+  function toggleMobileMenu(){
+    setMobileMenuOpen(!mobileMenuOpen);
+  }
+
+  function handleLogout(){
+    navigate('/');
+  }
+
+  if(!props.email){
+     return(
+      <div className="navbar">
+        <div onClick={handleTitleClick} className="navbar-title">POCKET TRAINER</div>
+        
+        {/* Desktop menu */}
+        <div className="nav-links">
+          <div onClick={handleLoginClick} className="nav-link">Login</div>
+        </div>
+
+        {/* Mobile hamburger menu */}
+        <div className="mobile-hamburger" onClick={toggleMobileMenu}>
+          <div className="hamburger-line"></div>
+          <div className="hamburger-line"></div>
+          <div className="hamburger-line"></div>
+        </div>
+
+        {/* Mobile menu */}
+        <div className={`mobile-nav-menu ${mobileMenuOpen ? 'open' : ''}`}>
+          <div onClick={handleLoginClick} className="mobile-nav-link">Login</div>
+        </div>
+      </div>
+     )
+  }
+
   return (
-    <div style={navStyle}>
-      <div onClick={handleTitleClick}  style={titleStyle}>POCKET TRAINER</div>
+    <div className="navbar">
+      <div onClick={handleTitleClick} className="navbar-title">POCKET TRAINER</div>
      
-      <div onClick={handlePlans} style={linkStyle} >Available Plans</div>
+      {/* Desktop navigation */}
+      <div className="nav-links">
+        <div onClick={handlePlans} className="nav-link">Available Plans</div>
+        <div onClick={viewPlans} className="nav-link">My Plans</div>
+        <div className="nav-link">Workout Logs</div>
+        <div onClick={toggleDropdown} className="nav-link">{props.email}</div>
+      </div>
 
-      <div onClick={viewPlans}   style={linkStyle} >My Plans</div>
+      {/* Mobile hamburger menu */}
+      <div className="mobile-hamburger" onClick={toggleMobileMenu}>
+        <div className="hamburger-line"></div>
+        <div className="hamburger-line"></div>
+        <div className="hamburger-line"></div>
+      </div>
 
-      <div  style={linkStyle} >Workout Logs</div>
-
-      <div onClick={toggleDropdown}  style={linkStyle} >{props.email}</div>
+      {/* Mobile menu */}
+      <div className={`mobile-nav-menu ${mobileMenuOpen ? 'open' : ''}`}>
+        <div onClick={handlePlans} className="mobile-nav-link">Available Plans</div>
+        <div onClick={viewPlans} className="mobile-nav-link">My Plans</div>
+        <div className="mobile-nav-link">Workout Logs</div>
+        <div onClick={toggleDropdown} className="mobile-nav-link">{props.email}</div>
+      </div>
 
       {isOpen && (
-        <div style={logOutStyle}>
-          <a onClick={handleLogout} style={logOutText}>Logout</a>
+        <div className="logout-dropdown">
+          <a onClick={handleLogout} className="logout-text">Logout</a>
         </div>
       )}
-    
-      
     </div> 
-
-
   )
 }
 

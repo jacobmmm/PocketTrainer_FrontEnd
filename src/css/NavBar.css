@@ -1,0 +1,148 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 10px 20px;
+  border-bottom: 2px solid black;
+  margin-bottom: 20px;
+  background-color: black;
+  flex-wrap: wrap;
+  /* Remove the gap: 300px; to allow space-between to work properly */
+}
+
+.navbar-title {
+  font-weight: bold;
+  font-size: clamp(18px, 4vw, 24px);
+  color: white;
+  cursor: pointer;
+  /*flex:1;*/
+  /* Removed flex: 1 to prevent expanding */
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: right;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: clamp(14px, 3vw, 18px);
+  cursor: pointer;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+.nav-link:last-child {
+  /* Remove margin-left since space-between handles positioning */
+}
+
+.logout-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  background-color: black;
+  border: 1px solid #ccc;
+  min-width: 150px;
+  padding: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.logout-text {
+  color: white;
+  cursor: pointer;
+}
+
+.logout-text:hover {
+  opacity: 0.8;
+}
+
+.mobile-hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 3px;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: black;
+  flex-direction: column;
+  padding: 10px;
+  border-top: 1px solid #333;
+}
+
+.mobile-nav-menu.open {
+  display: flex;
+}
+
+.mobile-nav-link {
+  color: white;
+  padding: 10px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+.mobile-nav-link:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav-link:hover {
+  opacity: 0.8;
+}
+
+/* Media Queries for Medium screens */
+@media (max-width: 1024px) {
+  .navbar {
+    gap: 30px; /* Medium gap for tablets/smaller desktops */
+  }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .mobile-hamburger {
+    display: flex;
+  }
+  
+  .navbar-title {
+    font-size: 20px;
+  }
+  
+  .navbar {
+    padding: 10px 15px;
+    gap: 20px; /* Reduce gap on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-title {
+    font-size: 18px;
+  }
+  
+  .navbar {
+    padding: 8px 10px;
+  }
+} 

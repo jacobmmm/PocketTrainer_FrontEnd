@@ -2,8 +2,10 @@
     /* text-align: center; */
     /* margin: 20px; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px 10px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
   .features-grid {
@@ -11,6 +13,8 @@
     justify-content: space-between;
     align-items: stretch;
     gap: 20px; /* Added gap between each feature box */
+    width: 100%;
+    max-width: 1000px;
   }
   
   .feature-box {
@@ -20,17 +24,22 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    margin-left: 70px;
-    margin-right: 30px;
-    margin-bottom: 30px;
+    margin: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-box:hover {
+    transform: translateY(-5px);
   }
   
   .feature-box img {
     width: 100%;  /*Ensure the image fits within the box */
     height: auto; /* Maintain aspect ratio */
+    max-width: 200px;
+    border-radius: 10px;
+    object-fit: cover;
     /* width: 75 px;
     height: 75 px; */
-    border-radius: 10px;
     /* margin-top: 10px;
     margin-left: 80px;
     margin-right: 30px;
@@ -38,7 +47,7 @@
   }
   
   .feature-box p {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 18px;
     text-align: center;
     font-weight: bold;
@@ -46,7 +55,56 @@
 
   .feature-text {
     text-align: center;
-    font-size: 18px;
+    font-size: clamp(16px, 3vw, 18px);
     margin-top: 20px;
+    color: #333;
+  }
+  
+  /* Tablet styles */
+  @media (max-width: 768px) {
+    .features-container {
+      padding: 15px 5px;
+    }
+    
+    .features-grid {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+    
+    .feature-box {
+      width: 80%;
+      max-width: 300px;
+      padding: 15px;
+    }
+    
+    .feature-box img {
+      max-width: 150px;
+    }
+    
+    .feature-text {
+      font-size: 16px;
+    }
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 480px) {
+    .features-container {
+      padding: 10px;
+    }
+    
+    .feature-box {
+      width: 90%;
+      padding: 10px;
+    }
+    
+    .feature-box img {
+      max-width: 120px;
+    }
+    
+    .feature-text {
+      font-size: 14px;
+      margin-top: 15px;
+    }
   }
   
