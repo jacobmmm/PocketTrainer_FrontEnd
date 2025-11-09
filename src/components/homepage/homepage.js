@@ -3,31 +3,49 @@ import "../../css/HomePage.css"; // Or use styled-components
 import logo from "../images/pocket_trainer_logo_2.0.png"; // Adjust path as needed
 import loginIcon from "../images/login-icon-2.0.png"; // Adjust path as needed
 
-const PocketHomePage = () => {
+const PocketHomePage = (props) => {
   return (
     <div className="hero-container">
       {/* Navbar */}
+      {props.email && (
+        
+          <nav className="navbar">
+            <div className="navbar-left">
+              <img src={logo} alt="Fitness Club Logo" className="logo" />
+              <span className="app-name">POCKET TRAINER</span>
+            </div>
+           
+            {/* <ul className="navbar-menu">
+              <li className="active">HOME</li>
+              <li>STORE</li>
+              <li>BLOGS</li>
+              <li>ABOUT US</li>
+              <li>CONTACT US</li>
+            </ul> */}
+            <div className="navbar-icons">
+              {/* <span className="icon">🔍</span>
+              <span className="icon">🛒</span> */}
+              <button className="login-btn">
+                <img src={loginIcon} alt="Login" className="login-icon" />
+              </button>
+            </div>
+          </nav>
+        
+      )}
       <nav className="navbar">
-        <div className="navbar-left">
-          <img src={logo} alt="Fitness Club Logo" className="logo" />
-          <span className="app-name">POCKET TRAINER</span>
-        </div>
-        <ul className="navbar-menu">
-          <li className="active">HOME</li>
-          <li>STORE</li>
-          <li>BLOGS</li>
-          <li>ABOUT US</li>
-          <li>CONTACT US</li>
-        </ul>
-        <div className="navbar-icons">
-          {/* <span className="icon">🔍</span>
-          <span className="icon">🛒</span> */}
-          <button className="login-btn">
-            <img src={loginIcon} alt="Login" className="login-icon" />
-    
-        </button>
-        </div>
-      </nav>
+            <div className="navbar-left">
+              <img src={logo} alt="Fitness Club Logo" className="logo" />
+              <span className="app-name">POCKET TRAINER</span>
+            </div>
+      <div className="navbar-icons">
+              {/* <span className="icon">🔍</span>
+              <span className="icon">🛒</span> */}
+              <button className="login-btn">
+                <img src={loginIcon} alt="Login" className="login-icon" />
+              </button>
+            </div>
+          </nav>
+
 
       {/* Hero Content */}
       <div className="hero-content">
