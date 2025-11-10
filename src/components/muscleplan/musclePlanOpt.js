@@ -32,7 +32,7 @@ export default  function MusclePlanOpt(props) {
       // Function to fetch plans
       const fetchPlans = async () => {
         try {
-          const response = await fetch('https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/workoutPlans');
+          const response = await fetch('https://4k4zv69rzi.execute-api.ap-southeast-2.amazonaws.com/workoutPlans');
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
@@ -78,7 +78,8 @@ export default  function MusclePlanOpt(props) {
 
     return(
 
-        <div className="container-style">
+      
+        <div className="container-style"> 
       <h1 className="title-style">MUSCLE BUILDING PLANS</h1>
       
       <div>
@@ -93,9 +94,7 @@ export default  function MusclePlanOpt(props) {
       <MuscleGroupModal isOpen={isModalOpen} onClose={handleCloseModal} userEmail={userEmail} planName={selectedPlan} />
       </div>
       </div>
-    
-
-
+      
     )
 
 }
