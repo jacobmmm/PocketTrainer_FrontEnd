@@ -4,6 +4,7 @@ import logo from "../images/pocket_trainer_logo_2.0.png"; // Adjust path as need
 import loginIcon from "../images/login-icon-2.0.png"; // Adjust path as needed
 import { useNavigate } from 'react-router-dom';
 import  TitleIcon  from "../title/titleIcon";
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -12,12 +13,16 @@ import  TitleIcon  from "../title/titleIcon";
 
 const PocketHomePage = (props) => {
 
+  const location = useLocation();
+  const { email } = location.state || {};
+  console.log("Homepage props email:", email);
+
 
   return (
     <>
     
     <div className="hero-container">
-    <TitleIcon props />  
+    <TitleIcon email={email} />  
       
      
 

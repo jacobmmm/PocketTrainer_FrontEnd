@@ -50,8 +50,8 @@ function TitleIcon  (props)  {
                    
                     <ul className="navbar-menu">
                       <li className="active">HOME</li>
-                      <li>AVAILABLE PLANS</li>
-                      <li>MY PLANS</li>
+                      <li onClick={handlePlans}>AVAILABLE PLANS</li>
+                      <li onClick={viewPlans}>MY PLANS</li>
                       <li>WORKOUT LOGS</li>
                     
                     </ul>
