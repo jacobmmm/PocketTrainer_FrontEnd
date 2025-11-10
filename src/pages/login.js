@@ -8,7 +8,7 @@ export default function Login(props){
     return(
         <div className="hero-container">
             <TitleIcon props />
-           {/* <NavBar /> */}
+           
            <LoginForm /> 
         </div>
 

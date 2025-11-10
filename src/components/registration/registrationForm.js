@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
+import '../../css/HomePage.css'
 
 function RegistrationForm() {
     const [firstName, setFirstName] = useState('');
@@ -164,7 +165,7 @@ function RegistrationForm() {
             />
           </div>  
 
-          <button type="submit">Sign Up</button>
+          <button className="join-now" type="submit">Sign Up</button>
         </form>
         
       </div>
