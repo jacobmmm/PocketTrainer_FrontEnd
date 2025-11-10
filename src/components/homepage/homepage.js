@@ -12,9 +12,13 @@ import  TitleIcon  from "../title/titleIcon";
 
 const PocketHomePage = (props) => {
 
+
   return (
+    <>
+    
     <div className="hero-container">
-      <TitleIcon props />
+    <TitleIcon props />  
+      
      
 
 
@@ -48,6 +52,7 @@ const PocketHomePage = (props) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

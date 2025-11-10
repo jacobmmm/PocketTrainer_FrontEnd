@@ -1,7 +1,9 @@
 .login-container {
-    width: 300px;
+    width: 500px;
+    
     margin: auto;
     border: 1px solid #ccc;
+    /* background: url('../components/homepage/GymWallpaper1.webp') center/cover no-repeat; */
     padding: 20px;
   }
   
