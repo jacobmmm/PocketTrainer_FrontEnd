@@ -78,22 +78,23 @@ export default  function MusclePlanOpt(props) {
 
     return(
 
-      
-        <div className="container-style"> 
+    <>
+        {/* <div className="container-style">  */}
       <h1 className="title-style">MUSCLE BUILDING PLANS</h1>
       
       <div>
-      <p> {plans.map((plan, index) => (
+      {plans.map((plan, index) => (
         <div key={index} className="plan-item-style">
           <div  className="arrow-style"></div>
           <span style={{ marginRight: '10px' }}>{plan.name}</span>
-          <span><button onClick={() => handleSelectPlan(plan.name)}>Select Plan</button></span>
+          <span><button className="join-now" onClick={() => handleSelectPlan(plan.name)}>Select Plan</button></span>
           
         </div>
-      ))} </p>
+      ))}
       <MuscleGroupModal isOpen={isModalOpen} onClose={handleCloseModal} userEmail={userEmail} planName={selectedPlan} />
       </div>
-      </div>
+      {/* </div> */}
+      </>
       
     )
 

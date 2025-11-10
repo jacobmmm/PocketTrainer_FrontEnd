@@ -24,7 +24,7 @@ export default function RegisteredPlans(props) {
   useEffect(() => {
     const fetchPlans = async () => {
       try {
-        const response = await fetch(`https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/userplans/${userEmail}`);
+        const response = await fetch(`https://4k4zv69rzi.execute-api.ap-southeast-2.amazonaws.com/userplans/${userEmail}`);
         if (response.ok) {
           const data = await response.json();
           console.log("Plans data fetched: ", data);
