@@ -48,13 +48,13 @@ function TitleIcon  (props)  {
                         <span onClick={handleTitleClick} className="app-name">POCKET TRAINER</span>
                     </div>
                    
-                    {/* <ul className="navbar-menu">
+                    <ul className="navbar-menu">
                       <li className="active">HOME</li>
-                      <li>STORE</li>
-                      <li>BLOGS</li>
-                      <li>ABOUT US</li>
-                      <li>CONTACT US</li>
-                    </ul> */}
+                      <li>AVAILABLE PLANS</li>
+                      <li>MY PLANS</li>
+                      <li>WORKOUT LOGS</li>
+                    
+                    </ul>
                     <div className="navbar-icons">
                         {/* <span className="icon">🔍</span>
                         <span className="icon">🛒</span> */}

@@ -1,5 +1,6 @@
 import '../../App.css';
 import '../../css/LoginForm.css'
+import '../../css/HomePage.css'
 
 import {useNavigate, Link } from 'react-router-dom'
 
@@ -20,7 +21,7 @@ function LoginForm() {
 
     try {
       let username = email
-      const response = await fetch('https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/userLogin', {
+      const response = await fetch('https://4k4zv69rzi.execute-api.ap-southeast-2.amazonaws.com/userLogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -86,10 +87,10 @@ function LoginForm() {
           {errors.message && <div style={{ color: "red" }}>{errors.message}</div>}
 
         </div>
-        <button type="submit">Login</button>
+        <button className="join-now" type="submit">Login</button>
       </form>
       <div className="footer">
-        <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+        <p>Don't have an account? <Link to="/signup" className="signup-link">Sign up</Link></p>
       </div>
     </div>
   );
