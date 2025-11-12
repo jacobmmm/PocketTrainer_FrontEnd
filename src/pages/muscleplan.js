@@ -6,11 +6,12 @@ import { useLocation } from 'react-router-dom';
 
 export default function MusclePlan(){
     const location = useLocation();
-    const { email } = location.state || {};
+    const { email, navigation } = location.state || {};
     console.log("Email in MusclePlan: ",email)
+    console.log("Navigation in MusclePlan: ",navigation)
     return(
         <div className="hero-container">
-            <TitleIcon email={email} />
+            <TitleIcon email={email} navigation={navigation} />
            {/* <NavBar email={email} />
            <MainImage /> */}
            <MusclePlanOpt email={email} /> 

@@ -8,11 +8,12 @@ import { useLocation } from 'react-router-dom';
 export default function UserPlans(){
 
     const location = useLocation();
-    const { email } = location.state || {};
+    const { email,navigation } = location.state || {};
     console.log("Email in UserPlan: ",email)
+    console.log("Navigation in UserPlan: ",navigation)
     return(
         <div className="hero-container">
-            <TitleIcon email={email} />
+            <TitleIcon email={email} navigation={navigation} />
            {/* <NavBar email={email} />
            <MainImage /> */}
            <RegisteredPlans email={email} /> 

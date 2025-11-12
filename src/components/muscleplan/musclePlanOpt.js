@@ -87,7 +87,7 @@ export default  function MusclePlanOpt(props) {
         <div key={index} className="plan-item-style">
           <div  className="arrow-style"></div>
           <span style={{ marginRight: '10px' }}>{plan.name}</span>
-          <span><button className="join-now" onClick={() => handleSelectPlan(plan.name)}>Select Plan</button></span>
+          <span><button className="plan-button" onClick={() => handleSelectPlan(plan.name)}>Select Plan</button></span>
           
         </div>
       ))}

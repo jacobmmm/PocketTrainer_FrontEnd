@@ -52,7 +52,8 @@ export default function RegisteredPlans(props) {
 
   return(
     // 
-      <div className="container-style">
+      // <div className="container-style">
+      <>
       <h1 className="title-style">MY PLANS</h1>
       
       {loading ? (
@@ -77,6 +78,7 @@ export default function RegisteredPlans(props) {
           You don't seem to have selected a plan yet. We highly suggest that you choose atleast <Link to="/muscleplan">one</Link>.
         </p>
       )}
-    </div>
+      </>
+    // </div>
   )
 }
