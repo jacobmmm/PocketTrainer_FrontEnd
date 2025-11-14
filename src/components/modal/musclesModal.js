@@ -1,12 +1,14 @@
 // MuscleGroupModal.js
 import React, { useState, useEffect } from 'react'
 import '../../css/MuscleModal.css'
+import {useNavigate} from 'react-router-dom'
 
 
 const MuscleGroupModal = ({ isOpen, onClose, userEmail, planName }) => {
 
   const [muscles, setMuscles] = useState([]);
   const [selectedMuscles, setSelectedMuscles] = useState({})
+  let navigate = useNavigate();
 
   console.log("Username in MuscleModal: ",userEmail)
   console.log("Plan You have selected: ",planName)
@@ -44,6 +46,12 @@ const MuscleGroupModal = ({ isOpen, onClose, userEmail, planName }) => {
 
   }
 
+  const closeButton = () => {
+    console.log("Closing Modal on close button")
+    setSelectedMuscles([])
+    navigate('/myplans',{ state: { email: userEmail } });
+  }
+
   const handleDoneClick = async() => {
     console.log("Selected Muscles: ",selectedMuscles) // Pass data to parent or handle logic here
     let username = userEmail;
@@ -53,7 +61,7 @@ const MuscleGroupModal = ({ isOpen, onClose, userEmail, planName }) => {
     if(submuscles)
     {
     try {
-      const response = await fetch('https://w47btzd5u9.execute-api.us-east-1.amazonaws.com/linkUserPlanSubmuscle', {
+      const response = await fetch('https://4k4zv69rzi.execute-api.ap-southeast-2.amazonaws.com/linkUserPlanSubmuscle', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -115,6 +123,7 @@ const MuscleGroupModal = ({ isOpen, onClose, userEmail, planName }) => {
       <div className="modal">
         {/* <h2>Choose Your Muscle Groups</h2> */}
         <h2>{planName}</h2>
+        <button className="close-button" onClick={closeButton}>×</button>
         <div className="groups-container">
           {
           muscles.map((muscleGroup,index) => {
@@ -122,7 +131,7 @@ const MuscleGroupModal = ({ isOpen, onClose, userEmail, planName }) => {
             console.log("index: ",index)
             const[muscleName, subMuscles] = Object.entries(muscleGroup)[0];
             
-            console.log("subMuscles of muscleGroup: ",subMuscles)
+            console.log("subMuscles of muscleGroup ",muscleName,": ",subMuscles)
             return(<div className="group-column" key={index}>
                    <h4 className="group-heading">{muscleName}</h4>
                    {subMuscles.map((subMuscle,subIndex) =>(

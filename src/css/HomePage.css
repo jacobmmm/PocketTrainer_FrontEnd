@@ -149,6 +149,10 @@
   align-items: center;
 }
 
+.navbar-icons {
+  position: relative; /* Required for absolute positioning of dropdown */
+}
+
 .login-btn {
   display: flex;
   align-items: center;

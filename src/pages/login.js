@@ -5,6 +5,7 @@ import "../css/HomePage.css"
 
 
 export default function Login(props){
+    console.log("in Login page: ")
     return(
         <div className="hero-container">
             <TitleIcon  />

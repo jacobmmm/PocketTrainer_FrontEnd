@@ -1,17 +1,22 @@
-import {React, useState, useEffect} from 'react';
+import {React, useState, useEffect, useRef} from 'react';
 import logo from "../images/pocket_trainer_logo_2.0.png";
 import loginIcon from "../images/login-icon-2.0.png";
-import { useNavigate } from 'react-router-dom';
+import profileIcon from "../images/profileIcon.png";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function TitleIcon  (props)  {
     console.log("Inside TitleIcon component");
     
     const navigate = useNavigate();
+    const location = useLocation();
+    const isInitialMount = useRef(true);
  
     const [navOpt,setNavOpts] = useState(() => {
         const savedNav = localStorage.getItem('myComponentData');
         return savedNav ? JSON.parse(savedNav) : 'HOME';
       });
+
+    const [isOpen, setIsOpen] = useState(false);
 
     // Route mapping: maps navigation option to route path
     const routeMap = {
@@ -63,8 +68,8 @@ function TitleIcon  (props)  {
     }
 
       function toggleDropdown(){
-        //console.log("isOpen is, ",isOpen)
-        //setIsOpen(!isOpen); 
+        console.log("isOpen is, ",isOpen)
+        setIsOpen(!isOpen); 
       }
 
       function handleLogout(){
@@ -76,11 +81,30 @@ function TitleIcon  (props)  {
       useEffect(() => {
         console.log("navigationOption changed to, ",navOpt);
         localStorage.setItem('myComponentData', JSON.stringify(navOpt));
-        let route=routeMap[navOpt] || '/';
-        console.log(`Navigating to ${navOpt}: ${route} in  useEffect hook`);
-        navigate(route, { state: { email: props.email, navigation: navOpt } });
         
-      }, [navOpt]);
+        // Don't navigate on initial mount or if we're on login/signup pages
+        const currentPath = location.pathname;
+        const protectedRoutes = ['/login', '/signup'];
+        
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+            // On initial mount, only navigate if we're not on a protected route
+            if (!protectedRoutes.includes(currentPath)) {
+                let route = routeMap[navOpt] || '/';
+                console.log(`Initial mount - Navigating to ${navOpt}: ${route}`);
+                navigate(route, { state: { email: props.email, navigation: navOpt } });
+            }
+            return;
+        }
+        
+        // On subsequent navOpt changes, navigate (but not from login/signup pages)
+        if (!protectedRoutes.includes(currentPath)) {
+            let route = routeMap[navOpt] || '/';
+            console.log(`Navigating to ${navOpt}: ${route} in useEffect hook`);
+            navigate(route, { state: { email: props.email, navigation: navOpt } });
+        }
+        
+      }, [navOpt, location.pathname]);
 
     return (
         <>
@@ -103,8 +127,14 @@ function TitleIcon  (props)  {
                         {/* <span className="icon">🔍</span>
                         <span className="icon">🛒</span> */}
                         <button className="login-btn">
-                            <img src={loginIcon} alt="Login" className="login-icon" />
+                            <img src={profileIcon} onClick={toggleDropdown} alt="Login" className="login-icon" />
                         </button>
+                        {isOpen && (
+        <div className="logout-style">
+          <a className="logout-text" > {props.email}</a>  
+          <a onClick={handleLogout} className="logout-text">Logout</a>
+        </div>
+      )}
                     </div>
                 </nav>
             )}

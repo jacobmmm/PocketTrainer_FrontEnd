@@ -1,0 +1,55 @@
+.navstyle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 20px;
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+    background-color: black;
+}
+
+.title-style {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.link-style {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.logout-style {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 100%;
+    right: 0;
+    background-color: black;
+    border: 1px solid #ccc;
+    width: 200px;
+    padding: 12px 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    gap: 8px; /* Space between email and logout */
+}
+
+.logout-text {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.logout-text:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
