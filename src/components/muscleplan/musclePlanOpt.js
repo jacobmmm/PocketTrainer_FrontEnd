@@ -72,6 +72,9 @@ export default  function MusclePlanOpt(props) {
 
       setModalOpen(false);
       console.log("Upon closing modal: ",isModalOpen)
+      const navOpt = "MY PLANS"
+      localStorage.setItem('myComponentData', JSON.stringify(navOpt));
+
       navigate('/myplans',{ state: { email: props.email } });
       
     }
