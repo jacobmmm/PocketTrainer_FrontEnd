@@ -64,7 +64,7 @@ export default function RegisteredPlans(props) {
             <div key={index} className="plan-card">
               <h3>{plan}</h3>
               
-              <button className="view-plan-btn" onClick={() => viewPlan(plan) }>View Plan</button>
+              <button className="plan-button" onClick={() => viewPlan(plan) }>View Plan</button>
               
               
             </div>

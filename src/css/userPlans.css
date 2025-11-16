@@ -37,8 +37,9 @@
   }
 
   .plan-card {
-    background-color: white;
+    background-color: lightgray;
     display:flex;
+    min-width: 250px;
     gap: 7rem;
     align-items: center;
     border-radius: 8px;
@@ -65,13 +66,43 @@
   }
 
   .view-plan-btn {
-    background-color: #007bff; /* Bootstrap blue */
-    color: white;              /* White text */
+    background-color: #ffd700; /* Yellow to match other buttons */
+    color: #222;               /* Dark text */
     border: none;              /* No border */
-    padding: 0.5rem 1rem; 
-    margin-bottom: 30px;     /* Some padding */
+    padding: 12px 24px; 
+    min-width: 120px;          /* Minimum width to prevent overflow */
     border-radius: 4px;        /* Rounded corners */
     cursor: pointer;           /* Pointer cursor on hover */
+    font-weight: bold;
+    font-size: 1rem;
+    white-space: nowrap;       /* Prevents text from wrapping */
+    text-align: center;
+    box-sizing: border-box;    /* Ensures padding is included in width */
+    transition: background 0.2s;
+  }
+
+  .view-plan-btn:hover {
+    background-color: #e6c200; /* Slightly darker yellow on hover */
+  }
+
+  .plan-button {
+    background-color: #ffd700; /* Yellow to match other buttons */
+    color: #222;               /* Dark text */
+    border: none;              /* No border */
+    padding: 12px 24px; 
+    min-width: 120px;          /* Minimum width to prevent overflow */
+    border-radius: 4px;        /* Rounded corners */
+    cursor: pointer;           /* Pointer cursor on hover */
+    font-weight: bold;
+    font-size: 1rem;
+    white-space: nowrap;       /* Prevents text from wrapping */
+    text-align: center;
+    box-sizing: border-box;    /* Ensures padding is included in width */
+    transition: background 0.2s;
+  }
+
+  .plan-button:hover {
+    background-color: #e6c200; /* Slightly darker yellow on hover */
   }
 
   .no-plans-message {
