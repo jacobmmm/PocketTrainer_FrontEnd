@@ -1,5 +1,6 @@
 import "../../css/MusclePlans.css"
 import "../../css/userPlans.css"
+import "../../css/planDetails.css"
 import { useLocation } from "react-router-dom";
 
 export default function PlanDetails(props) {
@@ -61,7 +62,7 @@ export default function PlanDetails(props) {
     const renderWorkoutPlan = (workoutArray) => {
         return workoutArray.map((workout, index) => (
             // <div key={index} className="plan-item-style">
-            <div key={index} className="plan-card">
+            <div key={index} className="plan-exc-card">
                 <span>
                     
                     Day {workout.day}: {workout.name}
