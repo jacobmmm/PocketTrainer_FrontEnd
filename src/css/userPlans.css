@@ -38,14 +38,21 @@
 
   .plan-card {
     background-color: lightgray;
-    display:flex;
+    display: flex;
     min-width: 250px;
-    gap: 7rem;
+    gap: 1rem;
     align-items: center;
+    justify-content: space-between;
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden; /* Prevents content from overflowing */
+    box-sizing: border-box; /* Includes padding in width */
+  }
+
+  .plan-card:first-child {
+    margin-left: 20px; /* No top margin for the first card */
   }
 
   .plan-card:hover {
@@ -55,8 +62,14 @@
 
   .plan-card h3 {
     margin-top: 0;
+    margin-bottom: 0;
     color: #007bff;
     font-size: 1.5rem;
+    flex: 1; /* Takes available space */
+    min-width: 0; /* Allows text to shrink */
+    overflow-wrap: break-word; /* Allows long text to wrap */
+    word-break: break-word; /* Breaks long words if needed */
+    padding-right: 1rem; /* Space between text and button */
   }
 
   .plan-card span {
@@ -90,7 +103,9 @@
     color: #222;               /* Dark text */
     border: none;              /* No border */
     padding: 12px 24px; 
-    min-width: 120px;          /* Minimum width to prevent overflow */
+    min-width: 100px;          /* Reduced minimum width */
+    max-width: 150px;          /* Maximum width to prevent overflow */
+    flex-shrink: 0;            /* Prevents button from shrinking too much */
     border-radius: 4px;        /* Rounded corners */
     cursor: pointer;           /* Pointer cursor on hover */
     font-weight: bold;
