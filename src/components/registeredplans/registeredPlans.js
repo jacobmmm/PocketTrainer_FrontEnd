@@ -17,8 +17,16 @@ export default function RegisteredPlans(props) {
 
   const viewPlan = (plan) => {
     console.log("Viewing plan: ", plan);
-    navigate('/viewplan',{ state: { plan: plan, email:props.email} });
-    // Here you can add logic to navigate to the plan details page or perform any other action
+    console.log("Navigating with state: ", { plan: plan, email: props.email });
+    const navOpt = "VIEW PLAN";
+    localStorage.setItem('myComponentData', JSON.stringify(navOpt));
+    navigate('/viewplan', { 
+      state: { 
+        plan: plan, 
+        email: props.email,
+        navigation: navOpt 
+      } 
+    });
   }
 
   useEffect(() => {

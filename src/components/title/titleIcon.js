@@ -23,7 +23,8 @@ function TitleIcon  (props)  {
         'HOME': '/',
         'AVAILABLE PLANS': '/muscleplan',
         'MY PLANS': '/myplans',
-        'WORKOUT LOGS': '/workout-logs' // Add your workout logs route here
+        'WORKOUT LOGS': '/workout-logs',
+        'VIEW PLAN': '/viewplan' 
     };
 
    
@@ -82,9 +83,9 @@ function TitleIcon  (props)  {
         console.log("navigationOption changed to, ",navOpt);
         localStorage.setItem('myComponentData', JSON.stringify(navOpt));
         
-        // Don't navigate on initial mount or if we're on login/signup pages
+        // Don't navigate on initial mount or if we're on protected pages
         const currentPath = location.pathname;
-        const protectedRoutes = ['/login', '/signup'];
+        const protectedRoutes = ['/login', '/signup', '/viewplan'];
         
         if (isInitialMount.current) {
             isInitialMount.current = false;
@@ -97,7 +98,7 @@ function TitleIcon  (props)  {
             return;
         }
         
-        // On subsequent navOpt changes, navigate (but not from login/signup pages)
+        // On subsequent navOpt changes, navigate (but not from protected pages)
         if (!protectedRoutes.includes(currentPath)) {
             let route = routeMap[navOpt] || '/';
             console.log(`Navigating to ${navOpt}: ${route} in useEffect hook`);

@@ -2,11 +2,12 @@ import "../../css/MusclePlans.css"
 import "../../css/userPlans.css"
 import { useLocation } from "react-router-dom";
 
-export default function PlanDetails() {
+export default function PlanDetails(props) {
     const location = useLocation();
     // Try to get plan from location.state
-    const plan = location.state?.plan || "No Plan Selected";
+    const plan = props.plan || "No Plan Selected";
     const planLower = String(plan).toLowerCase();
+    console.log("Plan in location: ", plan);
 
     console.log("Plan Lower in PlanDetails: ", planLower);
     console.log(planLower.includes('isolation'));
@@ -130,9 +131,12 @@ export default function PlanDetails() {
     }
 
     return(
-        <div className="container-style">
+        // <div className="container-style">
+        <>
             <h2 className="title-style">{plan}</h2>
             {planContent}
-        </div>
+
+        {/* </div> */}
+        </>
     )
 }
