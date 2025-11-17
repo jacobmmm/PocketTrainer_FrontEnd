@@ -76,7 +76,7 @@ export default function PlanDetails(props) {
     let planContent;
     if (planLower.includes('isolation') && (planLower.includes('5 split') || planLower.includes('5-split') || planLower.includes('5 day'))) {
         planContent = (
-            <div> 
+            <div className="split-container"> 
                 {/* <h3>5-Day Isolation Split</h3> */}
                 <p>This plan focuses on one muscle group per day for maximum isolation and recovery.</p>
                 {renderWorkoutPlan(isolation5_splits)}
@@ -86,7 +86,7 @@ export default function PlanDetails(props) {
     
     else if (planLower.includes('isolation') && (planLower.includes('4 split')  || planLower.includes('4-split') || planLower.includes('4 day'))) {
         planContent = (
-            <div>
+            <div className="split-container">
                 {/* <h3>4-Day Isolation Split</h3> */}
                 <p>This plan focuses on two muscle groups towards the last two days, allowing for more volume and recovery.</p>
                 {renderWorkoutPlan(isolation4_splits)}
@@ -98,7 +98,7 @@ export default function PlanDetails(props) {
     
     else if (planLower.includes('push pull') || planLower.includes('push-pull') || planLower.includes('ppl')) {
         planContent = (
-            <div>
+            <div className="split-container">
                 {/* <h3>Push Pull Legs (PPL)</h3> */}
                 <p>This plan groups exercises by movement patterns for efficient training.</p>
                 {renderWorkoutPlan(push_pull_legs)}
@@ -106,7 +106,7 @@ export default function PlanDetails(props) {
         );
     } else if (planLower.includes('full body') || planLower.includes('fullbody')) {
         planContent = (
-            <div>
+            <div className="split-container">
                 {/* <h3>Full Body Workout</h3> */}
                 <p>This plan works all major muscle groups in each session, perfect for beginners.</p>
                 {renderWorkoutPlan(full_body)}
@@ -114,7 +114,7 @@ export default function PlanDetails(props) {
         );
     } else if (planLower.includes('upper lower') || planLower.includes('upper-lower')) {
         planContent = (
-            <div>
+            <div className="split-container">
                 {/* <h3>Upper Lower Split</h3> */}
                 <p>This plan alternates between upper and lower body workouts.</p>
                 {renderWorkoutPlan(upper_lower)}
@@ -123,7 +123,7 @@ export default function PlanDetails(props) {
     } else {
         // Default case - show the original isolation plan
         planContent = (
-            <div>
+            <div className="split-container">
                 {/* <h3>Default Workout Plan</h3> */}
                 <p>Here's your personalized workout schedule:</p>
                 {renderWorkoutPlan(isolation5_splits)}
