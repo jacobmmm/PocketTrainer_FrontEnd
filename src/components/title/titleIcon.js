@@ -82,10 +82,17 @@ function TitleIcon  (props)  {
       useEffect(() => {
         console.log("navigationOption changed to, ",navOpt);
         localStorage.setItem('myComponentData', JSON.stringify(navOpt));
+        console.log("Location pathname in useEffect: ", location.pathname);
+        console.log("Plan value present in location.state: ", location.state?.plan);
+        const plan = location.state?.plan;
+        console.log("Plan in location state: ", plan);
+
         
         // Don't navigate on initial mount or if we're on protected pages
         const currentPath = location.pathname;
-        const protectedRoutes = ['/login', '/signup', '/viewplan'];
+        //const protectedRoutes = ['/login', '/signup', '/viewplan'];
+        const protectedRoutes = ['/login', '/signup'];
+        console.log("Current Path: ", currentPath);
         
         if (isInitialMount.current) {
             isInitialMount.current = false;
@@ -93,7 +100,7 @@ function TitleIcon  (props)  {
             if (!protectedRoutes.includes(currentPath)) {
                 let route = routeMap[navOpt] || '/';
                 console.log(`Initial mount - Navigating to ${navOpt}: ${route}`);
-                navigate(route, { state: { email: props.email, navigation: navOpt } });
+                navigate(route, { state: { email: props.email, navigation: navOpt, plan:plan } });
             }
             return;
         }
@@ -102,7 +109,7 @@ function TitleIcon  (props)  {
         if (!protectedRoutes.includes(currentPath)) {
             let route = routeMap[navOpt] || '/';
             console.log(`Navigating to ${navOpt}: ${route} in useEffect hook`);
-            navigate(route, { state: { email: props.email, navigation: navOpt } });
+            navigate(route, { state: { email: props.email, navigation: navOpt, plan:plan } });
         }
         
       }, [navOpt, location.pathname]);
