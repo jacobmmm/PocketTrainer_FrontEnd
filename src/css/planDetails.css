@@ -1,0 +1,49 @@
+.plan-exc-card {
+    background-color: lightgray;
+    display: flex;
+    min-width: 250px;
+    max-width:650px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden; /* Prevents content from overflowing */
+    box-sizing: border-box; /* Includes padding in width */
+  }
+
+  .plan-exc-card:first-child {
+    margin-left: 20px; /* No top margin for the first card */
+  }
+
+  .plan-exc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .plan-exc-card h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #007bff;
+    font-size: 1.5rem;
+    flex: 1; /* Takes available space */
+    min-width: 0; /* Allows text to shrink */
+    overflow-wrap: break-word; /* Allows long text to wrap */
+    word-break: break-word; /* Breaks long words if needed */
+    padding-right: 1rem; /* Space between text and button */
+  }
+
+  .plan-exc-card span {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.2rem;
+  }
+
+  .split-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
