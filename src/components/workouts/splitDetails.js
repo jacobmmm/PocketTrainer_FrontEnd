@@ -1,22 +1,11 @@
-import "../../css/MusclePlans.css"
-import "../../css/userPlans.css"
-import "../../css/planDetails.css"
-import { useLocation, useNavigate } from "react-router-dom";
 
-export default function PlanDetails(props) {
-    const location = useLocation();
-    let navigate = useNavigate();
+
+export default function SplitDetails(props) {
+
+    const { plan } = props;
+    const planLower = plan ? plan.toLowerCase() : '';
     
-    // Try to get plan from location.state
-    const plan = props.plan || "No Plan Selected";
-    const planLower = String(plan).toLowerCase();
-    console.log("Plan in location: ", plan);
-
-    console.log("Plan Lower in PlanDetails: ", planLower);
-    console.log(planLower.includes('isolation'));
-    console.log(planLower.includes('4 day'));
-
-    const isolation5_splits = [
+        const isolation5_splits = [
         { day:'1',name: 'Legs' },
         { day:'2',name: 'Chest' },
         { day:'3',name: 'Shoulders' },
@@ -60,18 +49,11 @@ export default function PlanDetails(props) {
         { day:'7',name: 'Rest' }
     ];
 
-    const handleSplitClick = () => {
-        console.log("Clicked split:", plan);
-        navigate('/viewSplit', { state:  { email: props.email} });
- 
-        // Implement navigation or modal popup to show exercise details
-    }
-
     // Function to render workout plan
     const renderWorkoutPlan = (workoutArray) => {
         return workoutArray.map((workout, index) => (
             // <div key={index} className="plan-item-style">
-            <div key={index} onClick={() => handleSplitClick(workout.name)} className="plan-exc-card">
+            <div key={index} className="plan-exc-card">
                 <span>
                     
                     Day {workout.day}: {workout.name}
@@ -150,3 +132,5 @@ export default function PlanDetails(props) {
         </>
     )
 }
+        
+    

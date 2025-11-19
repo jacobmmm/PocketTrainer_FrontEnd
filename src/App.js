@@ -7,6 +7,7 @@ import Registration from './pages/registration';
 import MusclePlan from './pages/muscleplan';
 import PlanExcercise from './pages/planExcercise';
 import UserPlans from './pages/userPlans';
+import SplitDetails from './components/workouts/splitDetails';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/muscleplan/excercises" element={<PlanExcercise />} />
       <Route path="/myplans" element={<UserPlans />} />
       <Route path="/viewplan" element={<PlanExcercise />} />
+      <Route path="/viewSplit" element={<SplitDetails />} />
       
       </Routes>
       </Router>
