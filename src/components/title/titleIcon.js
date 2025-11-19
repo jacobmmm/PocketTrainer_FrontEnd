@@ -2,6 +2,7 @@ import {React, useState, useEffect, useRef} from 'react';
 import logo from "../images/pocket_trainer_logo_2.0.png";
 import loginIcon from "../images/login-icon-2.0.png";
 import profileIcon from "../images/profileIcon.png";
+import '../../css/LoginIcon.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function TitleIcon  (props)  {
